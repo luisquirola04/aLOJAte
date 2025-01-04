@@ -7,6 +7,12 @@ const Catalogo = sequelize.define('Catalogo', {
         primaryKey: true,
         autoIncrement: true,
     },
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, 
+        allowNull: false,
+        unique: true,
+    },
     nombre:  {
         type: DataTypes.STRING,
         allowNull: false 

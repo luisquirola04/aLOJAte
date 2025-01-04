@@ -7,6 +7,13 @@ const Cuenta = sequelize.define('Cuenta', {
         primaryKey: true,
         autoIncrement: true,
     },
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, 
+        allowNull: false,
+        unique: true,
+    },
+    
     correo:{ type:DataTypes.STRING, 
         allowNull:false, 
         unique:true},

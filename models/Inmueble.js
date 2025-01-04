@@ -12,6 +12,13 @@ const Inmueble = sequelize.define('Inmueble', {
         type: DataTypes.STRING,
         allowNull: false 
     },  
+    
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, 
+        allowNull: false,
+        unique: true,
+    },
 
     imagen:  {
         type: DataTypes.STRING,

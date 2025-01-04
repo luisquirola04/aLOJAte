@@ -7,6 +7,15 @@ const Rol = sequelize.define('Rol', {
         primaryKey: true,
         autoIncrement: true,
     },
+
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, 
+        allowNull: false,
+        unique: true,
+    },
+
+    
     nombre: {type:DataTypes.STRING, 
         allowNull:false, 
         unique:true },

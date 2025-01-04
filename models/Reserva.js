@@ -7,10 +7,15 @@ const Reserva = sequelize.define('Reserva', {
         primaryKey: true,
         autoIncrement: true,
     },
-    id_reservante: {
-        type: DataTypes.INTEGER,
-        allowNull: false 
+
+    uuid: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, 
+        allowNull: false,
+        unique: true,
     },
+
+    
 
     fecha_reserva: {
         type: DataTypes.DATE,

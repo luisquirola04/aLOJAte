@@ -6,18 +6,15 @@ const controller = new Controller_Reserva();
 
 
 
-router.get("/realizar/:nro",(req,res)=>{
-    let respuesta = controller.metodo(req.params.nro);
-    res.send(respuesta);
-});
+router.post("/realizar/reserva", async(req, res) => {
+    const respuesta = await controller.save_reserva(req);
 
-router.post("/realizar/reserva",(req,res)=>{
-    const {nro} = req.body;
-    let respuesta = controller.metodo_example(nro);
-
-    res.json({response: respuesta , 
-        code: 200,
-    });
+    if (typeof respuesta == 'number') {
+        return res.status(200).json({ message: "Reserva realizada con exito" , code: 200});
+    }
+    else {
+        return res.status(400).json({ message: "Error al realizar la reserva", code: 400});
+    }
 });
 
 

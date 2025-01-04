@@ -1,7 +1,6 @@
 const express = require('express');
 const sequelize = require('./config/config_bd');
 const cors = require('cors')
-
 const Persona = require('./models//Persona');
 const Catalogo = require('./models//Catalogo');
 const Cuenta = require('./models//Cuenta');
@@ -13,6 +12,7 @@ const Rol = require('./models//Rol');
 
 const app = express();
 app.use(cors())
+app.use(express.json());
 
 Persona.hasOne(Cuenta, {
     foreignKey: {
@@ -73,6 +73,18 @@ app.get('/', (req, res) => {
     res.send('¡Servidor Express en funcionamiento!');
 });
 
+
+//RUTAS
+const reserva = require('./routes/routes_reserva');
+app.use(reserva);
+
+
+
+
+
+
+
+//SERVIDOR ESCUCHANDO
 app.listen(5000, () => {
     console.log("server is listening on port", 5000);
 });

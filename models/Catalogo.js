@@ -23,6 +23,7 @@ const Catalogo = sequelize.define('Catalogo', {
     },  
 },{
     tableName: 'catalogo',
+    timestamps : true,
 });
 
 module.exports = Catalogo;

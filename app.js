@@ -81,6 +81,10 @@ app.get('/', (req, res) => {
 
 //RUTAS
 const reserva = require('./routes/routes_reserva');
+const inmueble = require('./routes/routes_inmueble');
+const catalogo = require('./routes/routes_catalogo');
+app.use(catalogo);
+app.use(inmueble);
 app.use(reserva);
 // Ruta Notificaciones 
 const api_notificacion = require('./routes/api_notificacion');

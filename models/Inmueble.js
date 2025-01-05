@@ -7,49 +7,56 @@ const Inmueble = sequelize.define('Inmueble', {
         primaryKey: true,
         autoIncrement: true,
     },
-
+    id_catalogo: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Catalogo', 
+            key: 'id'
+        }
+    },
+    id_cuenta: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'Cuenta', // Nombre de la tabla de cuenta
+            key: 'id'
+        }
+    },
     nombre:  {
         type: DataTypes.STRING,
         allowNull: false 
     },  
-    
     uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4, 
         allowNull: false,
         unique: true,
     },
-
     imagen:  {
         type: DataTypes.STRING,
         allowNull: false 
     },  
-
     descripcion:  {
         type: DataTypes.STRING,
         allowNull: false 
     },  
-
     longitud:  {
         type: DataTypes.DOUBLE,
         allowNull: false 
     },  
-
     latitud: {
         type: DataTypes.DOUBLE,
         allowNull: false 
     },  
-
     nro_casa: {
         type: DataTypes.STRING,
         allowNull: false 
     },  
-
     descripcion_ubicacion: {
         type: DataTypes.STRING,
         allowNull: false 
     },  
-
     capacidad: {
         type: DataTypes.INTEGER,
         allowNull: false 
@@ -58,13 +65,14 @@ const Inmueble = sequelize.define('Inmueble', {
         type: DataTypes.DOUBLE,
         allowNull: false 
     },  
-
     estado: {
         type: DataTypes.BOOLEAN,
         allowNull: false 
     },  
 },{
     tableName: 'inmueble',
+    timestamps : true,
+    
 });
 
 module.exports = Inmueble;

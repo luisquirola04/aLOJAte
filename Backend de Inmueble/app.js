@@ -41,8 +41,9 @@ app.use(inmueble);
 
 
 //SERVIDOR ESCUCHANDO
-app.listen(5000, () => {
-    console.log("server is listening on port", 5000);
+const port = 5000;
+app.listen(port, () => {
+    console.log("server is listening on port", port);
 });
 
 // Manejo de rutas no encontradas 

@@ -7,5 +7,7 @@
 
 **FRONTEND**
 ***Para iniciar el frontend usar:***
+
 *1. npm install una sola vez al clonar*
+
 *2. npm run dev*
